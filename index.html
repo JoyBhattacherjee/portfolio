@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Joy Bhattacherjee - Senior Software Developer & Researcher</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    /* Root Variables */
+    :root {
+      --primary: #2563eb;
+      --primary-light: #3b82f6;
+      --secondary: #1e293b;
+      --accent: #f59e0b;
+      --light: #f8fafc;
+      --gray: #94a3b8;
+      --dark-gray: #64748b;
+      --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Lexend', sans-serif;
+      background-color: #f1f5f9;
+      color: var(--secondary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    /* Keyframe Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes bounceIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.5);
+      }
+
+      60% {
+        opacity: 1;
+        transform: scale(1.05);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    /* Header */
+    .profile-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+      padding-bottom: 2rem;
+      animation: fadeInUp 1s ease-in-out forwards;
+    }
+
+    .profile-header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      border-radius: 2px;
+    }
+
+    .profile-image {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid white;
+      box-shadow: var(--card-shadow);
+      margin-bottom: 1.5rem;
+      animation: bounceIn 1s ease-out;
+    }
+
+    .profile-name {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: black;
+      margin-bottom: 0.5rem;
+    }
+
+    .profile-title {
+      font-size: 1.25rem;
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .profile-summary {
+      max-width: 800px;
+      font-size: 1.1rem;
+      color: var(--dark-gray);
+      margin-bottom: 1.5rem;
+    }
+
+    /* Section */
+    .section {
+      background: white;
+      border-radius: 12px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--card-shadow);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    .section:nth-of-type(2) {
+      animation-delay: 0.2s;
+    }
+
+    .section:nth-of-type(3) {
+      animation-delay: 0.4s;
+    }
+
+    .section:nth-of-type(4) {
+      animation-delay: 0.6s;
+    }
+
+    .section:nth-of-type(5) {
+      animation-delay: 0.8s;
+    }
+
+    .section:nth-of-type(6) {
+      animation-delay: 1s;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      border-radius: 3px;
+    }
+
+    .about-text {
+      font-size: 1.1rem;
+      color: var(--dark-gray);
+      line-height: 1.8;
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-card {
+      background: var(--light);
+      border-radius: 8px;
+      padding: 1.5rem;
+      transition: var(--transition);
+      border-left: 4px solid var(--primary);
+      transform: scale(1);
+    }
+
+    .skill-card:hover {
+      transform: scale(1.03);
+      background: white;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    .skill-name {
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .skill-name i {
+      margin-right: 0.5rem;
+      color: var(--accent);
+    }
+
+    .skill-description {
+      color: var(--dark-gray);
+      font-size: 0.95rem;
+    }
+
+    /* Timeline */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 7px;
+      height: 100%;
+      width: 2px;
+      background: var(--gray);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-bottom: 2rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      top: 5px;
+      left: -2rem;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: 2px solid white;
+      box-shadow: 0 0 0 3px var(--primary-light);
+    }
+
+    .timeline-period {
+      font-size: 0.9rem;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+    }
+
+    .timeline-title {
+      font-weight: 600;
+      color: var(--secondary);
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .timeline-company {
+      color: var(--primary);
+      font-weight: 500;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Publications */
+    .publications-list {
+      list-style: none;
+    }
+
+    .publication-item {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px dashed var(--gray);
+    }
+
+    .publication-title {
+      font-weight: 600;
+      color: var(--secondary);
+      margin-bottom: 0.3rem;
+      font-size: 1.1rem;
+    }
+
+    .publication-meta {
+      font-size: 0.9rem;
+      color: var(--dark-gray);
+      font-style: italic;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 2rem 0;
+      color: var(--dark-gray);
+      font-size: 0.95rem;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .social-link {
+      color: var(--primary);
+      font-size: 1.5rem;
+      transition: var(--transition);
+    }
+
+    .social-link:hover {
+      color: var(--accent);
+      transform: translateY(-3px) scale(1.2);
+    }
+
+    @media (max-width: 768px) {
+      .profile-name {
+        font-size: 2rem;
+      }
+
+      .profile-title {
+        font-size: 1.1rem;
+      }
+
+      .section {
+        padding: 1.5rem;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header class="profile-header">
+      <img src="avatar.jpg" alt="Joy Bhattacherjee" class="profile-image" />
+      <h1 class="profile-name">Joy Bhattacherjee</h1>
+      <p class="profile-title">Senior Software Developer & Team Manager | AI Researcher | Quantum Computing</p>
+      <p class="profile-summary">Innovative technologist with 6+ years experience building cutting-edge solutions across
+        mobile, web, AI and quantum computing domains.</p>
+    </header>
+
+    <section class="section">
+      <h2 class="section-title">About Me</h2>
+      <p class="about-text">I'm a Senior Software Developer and Team Manager with over six years of experience in
+        full-stack development, mobile technologies, and applied AI/ML. A top graduate in Electronics with a
+        specialization in image processing, I combine academic rigor with hands-on expertise in Flutter, Node.js, and
+        Quantum Computing. With six international publications and a strong portfolio of live apps, I lead teams at
+        Pixel Consultancy while driving innovation across IoT, AI, and software architecture.</p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Core Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3 class="skill-name"><i class="fas fa-mobile-alt"></i> Flutter Development</h3>
+          <p class="skill-description">Expertise in developing scalable, high-performance cross-platform mobile
+            applications with beautiful UI/UX.</p>
+        </div>
+        <div class="skill-card">
+          <h3 class="skill-name"><i class="fas fa-server"></i> Node.js Backend</h3>
+          <p class="skill-description">Building robust, secure backend systems and RESTful APIs with Express and
+            MongoDB.</p>
+        </div>
+        <div class="skill-card">
+          <h3 class="skill-name"><i class="fas fa-brain"></i> AI/ML Engineering</h3>
+          <p class="skill-description">Designing and deploying machine learning models with Python, TensorFlow, and
+            PyTorch.</p>
+        </div>
+        <div class="skill-card">
+          <h3 class="skill-name"><i class="fas fa-atom"></i> Quantum Computing</h3>
+          <p class="skill-description">Research in quantum algorithms and circuit design with 6 international
+            publications.</p>
+        </div>
+        <div class="skill-card">
+          <h3 class="skill-name"><i class="fas fa-robot"></i> Conversational AI</h3>
+          <p class="skill-description">Developing intelligent chatbots and voice assistants using DialogFlow and NLP
+            techniques.</p>
+        </div>
+        <div class="skill-card">
+          <h3 class="skill-name"><i class="fas fa-chart-line"></i> Data Analytics</h3>
+          <p class="skill-description">Extracting actionable insights from complex datasets using Python and
+            visualization tools.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Professional Experience</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-period">Aug 2023 – Present</span>
+          <h3 class="timeline-title">Senior Software Developer</h3>
+          <span class="timeline-company">Pixel Consultancy</span>
+          <p>Leading development teams and architecting complex software solutions across multiple domains.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-period">Jan 2023 – Aug 2023</span>
+          <h3 class="timeline-title">Senior Mobile Application Developer</h3>
+          <span class="timeline-company">Pixel Consultancy</span>
+          <p>Spearheaded mobile development initiatives and mentored junior developers.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-period">May 2021 – Jan 2023</span>
+          <h3 class="timeline-title">Mobile Application Developer</h3>
+          <span class="timeline-company">Eiosys Private Limited</span>
+          <p>Developed and maintained high-performance mobile applications using Flutter.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-period">Aug 2020 – Feb 2021</span>
+          <h3 class="timeline-title">Flutter Developer</h3>
+          <span class="timeline-company">Rayaan Analytics</span>
+          <p>Worked on cross-platform mobile application development using Flutter for analytics-driven applications.
+          </p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-period">Jul 2018 – Jul 2020</span>
+          <h3 class="timeline-title">Freelance Flutter Developer</h3>
+          <p>Delivered custom mobile solutions for diverse clients across industries.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Education</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-period">2018 - 2020</span>
+          <h3 class="timeline-title">M.Sc. in Electronics Science</h3>
+          <span class="timeline-company">Acharya Prafulla Chandra College (Topper)</span>
+          <p>Specialized in image processing and quantum computing research.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-period">2014 - 2018</span>
+          <h3 class="timeline-title">B.Sc. in Physics</h3>
+          <span class="timeline-company">Calcutta University</span>
+          <p>Fundamental studies in physics with focus on computational methods.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Selected Publications</h2>
+      <ul class="publications-list">
+        <li class="publication-item">
+          <h3 class="publication-title">Novel Quantum Adder Circuit Design Using CNOT Gate</h3>
+          <p class="publication-meta">Journal of Active & Passive Electronic Devices | Jan 2023</p>
+        </li>
+        <li class="publication-item">
+          <h3 class="publication-title">Novel detection of cancerous cells through an image segmentation approach using
+            principal component analysis</h3>
+          <p class="publication-meta">Academic Press | Jun 2021</p>
+        </li>
+        <li class="publication-item">
+          <h3 class="publication-title">Quantum Machine Learning for Image Classification</h3>
+          <p class="publication-meta">IEEE Quantum Computing Journal | 2022</p>
+        </li>
+        <li class="publication-item">
+          <h3 class="publication-title">Optimizing IoT Networks with Quantum Algorithms</h3>
+          <p class="publication-meta">Springer Nature | 2021</p>
+        </li>
+      </ul>
+    </section>
+
+    <footer class="footer">
+      <p>Let's connect and explore potential collaborations!</p>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/joy-bhattacherjee-77a232194/" class="social-link" target="_blank"><i
+            class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/JoyBhattacherjee" class="social-link" target="_blank"><i
+            class="fab fa-github"></i></a>
+        <a href="https://www.instagram.com/joybhattacherjee/" class="social-link" target="_blank"><i
+            class="fab fa-instagram"></i></a>
+        <a href="mailto:joybhatta1000@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+      </div>
+    </footer>
+
+  </div>
+</body>
+
+</html>

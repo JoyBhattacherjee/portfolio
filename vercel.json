@@ -1,0 +1,16 @@
+{
+    "version": 2,
+    "name": "Portfolio",
+    "builds": [
+        {
+            "src": "index.html",
+            "use": "@vercel/html"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "/index.html"
+        }
+    ]
+}

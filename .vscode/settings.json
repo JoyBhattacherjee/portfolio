@@ -1,0 +1,12 @@
+{
+  "editor.fontSize": 15,
+  "editor.lineHeight": 28,
+  "editor.fontFamily": "'IBM Plex Mono', Consolas, 'Courier New', monospace",
+  "workbench.colorCustomizations": {
+    "editor.background": "#F0F0F0", // Light grey background
+    "sideBar.background": "#E8E8E8", // Optional: sidebar light grey
+    // "activityBar.background": "#E0E0E0", // Optional: top-left bar
+    // "statusBar.background": "#DCDCDC", // Optional: bottom bar
+    "titleBar.activeBackground": "#F0F0F0"
+  }
+}
