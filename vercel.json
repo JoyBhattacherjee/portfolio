@@ -3,7 +3,7 @@
     "name": "Portfolio",
     "builds": [
         {
-            "src": "index.html",
+            "src": "index.html"
         }
     ],
     "routes": [
